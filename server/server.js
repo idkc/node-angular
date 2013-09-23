@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var app = module.exports = express();
 
-var splitList = __dirname.split('/');
 var clientDir = path.join(__dirname, '../client');
 
 app.configure(function(){
@@ -15,6 +14,7 @@ app.configure(function(){
 console.log(__dirname);
 
 app.get(/\/bower_components|resources|views|modules\/?.*/, function(req, res){
+	console.log(req.path);
 	res.sendfile(clientDir + req.path);
 });
 
