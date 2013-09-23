@@ -1,8 +1,9 @@
 var express = require('express');
+var path = require('path');
 var app = module.exports = express();
 
 var splitList = __dirname.split('/');
-var clientDir = splitList.splice(0, splitList.length -1).join('/') + '/client';
+var clientDir = path.join(__dirname, '../client');
 
 app.configure(function(){
 	app.use(express.bodyParser());
